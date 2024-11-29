@@ -4,8 +4,6 @@ import connectDB from "./db-connection";
 import bookrouter from "./routes/book.route";
 import authrouter from "./routes/auth.route";
 import mechanismrouter from "./routes/mechanism.route";
-import cors from "cors";
-
 const app = express();
 const PORT = 5000;
 
