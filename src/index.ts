@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import connectDB from "./db-connection";
 import bookrouter from "./routes/book.route";
 import authrouter from "./routes/auth.route";
@@ -6,6 +7,14 @@ import mechanismrouter from "./routes/mechanism.route";
 
 const app = express();
 const PORT = 5000;
+
+app.use(
+  cors({
+    origin: 'http://localhost:5173', // Ganti dengan domain frontend kamu
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Metode HTTP yang diizinkan
+    allowedHeaders: ['Content-Type', 'Authorization'], // Header yang diizinkan
+  })
+);
 
 app.use(express.json());
 connectDB();
